@@ -52,6 +52,20 @@ app.post('/api/items', function(req,res){
 	})
 });
 
+
+app.put('/api/items/:id', function(req,res){
+	var sql ='UPDATE shoppingcart SET product= COALESCE($2::text, product), price=COALESCE($3::int, price) WHERE id=$1::int;'
+	var values = [ req.params.id, req.body.product, req.body.price ];
+	pool.query(sql, values).then(function(result){
+		res.status(201).send("Updated");
+	}).catch(function(err){
+		console.log(err);
+		res.status(500);
+		res.send("server error");
+	})
+});
+
+
 // DELETE /api/items/{ID} - delete an item from the database. The item is
 // selected via the {ID} part of the URL.
 // TODO Handle this URL with appropriate Database interaction.
