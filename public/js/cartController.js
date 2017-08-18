@@ -4,8 +4,8 @@ app.controller("cartController", function($scope, cartService) {
     $scope.formItem = {};
 
     // Load the cart data on page load.
-    cartService.getAllItems().then(function(items) {
-        $scope.items = items;
+    // cartService.getAllItems().then(function(items) {
+    //     // $scope.items = items;
     });
 
     // Function on scope called when form is submitted.

@@ -5,9 +5,10 @@ app.service("cartService", function($http) {
     // resolves to an array of products. (The promise should NOT resolve to the
     // entire response object.)
     this.getAllItems = function() {
-        // GET /api/items
-
-        // TODO Make the HTTP request to the server and return a promise.
+        // $http.get('/api/items').then(function(response) {
+        //     console.log(response.data);
+            // $scope.items = response.data.;
+        // });
     };
 
     // Call the Node Server API to add an item.
